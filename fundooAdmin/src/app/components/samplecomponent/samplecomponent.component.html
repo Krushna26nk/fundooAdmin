@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row align-items-center">
+      <div class="col-lg-4"></div>
+
+
+            <div class="col" id="mainColumn">
+              <div class="p-3"></div>
+                  <div class="text-center">
+                    <div class="heading">  <h3>   <span>F</span><span>U</span><span>N</span><span>D</span><span>O</span><span>O</span>      </h3> </div>
+                    <div class="signIn">   <p>  Sign In   </p></div>
+                    <div class="signIn1">  <p>  With Your Google Acoount  </p></div> 
+                  </div>
+
+              <div class="container" >
+                      <form id=formId  (ngSubmit)="onSubmit()">
+                        
+                          <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="text"  id="email" class="form-control" placeholder="Email or Phone">
+                            <p class="emailError">* Please Enter Email ID</p>
+                            <p class="emailError1">* Please Enter Valid Email ID</p> 
+                          </div>
+
+                          <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Password">
+                            <p class="passwordError">* Please Enter Password</p>
+                            <p class="passwordError1">* Please Enter Correct Password</p> 
+                          </div>
+
+                          <div class="row">
+                            <p class="col-4">Forget Password ?</p>
+                            <div class="col-3"></div>
+                          <div class="col-3">
+                             <a routerLink="empty"> <button id="button" class="btn btn-primary">LOGIN</button> </a>
+                            </div>
+                          </div>
+                      
+                      </form>
+              </div>
+                        <div class="p-5"></div>
+
+            </div>
+      
+
+      
+      <div class="col-lg"></div>
+    </div>
+
+
+</div>
