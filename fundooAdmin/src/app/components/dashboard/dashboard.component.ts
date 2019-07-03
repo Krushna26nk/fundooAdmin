@@ -23,6 +23,12 @@ export class DashboardComponent implements OnInit {
 
     var sampleToken = localStorage.getItem('token');
     console.log(sampleToken);
+
+/**
+ * @description ajax method to call the user admin list api
+ */
+
+
     $.ajax({
       url:listUrl,
       type:'GET',
@@ -40,6 +46,10 @@ export class DashboardComponent implements OnInit {
   var tableData ='';
   var tableData1 ='';
 
+/**
+ * @description appending the response data into html document
+ */
+
   tableData += '<tr>';
   tableData += '<td>'+serviceData[0].service+'</td>';
   tableData += '<td>'+serviceData[0].count+'</td>';
@@ -53,77 +63,85 @@ export class DashboardComponent implements OnInit {
   $('#table').append(tableData1);
       
 
+/**
+ * @description ajax call to listing all the user details who has access the services.
+ */
+
   $.ajax({
     url:listUrl1,
     type:'GET',
     data:sampleToken,
     success:function(resData){
-      // console.log('sample token in ',this.sampleToken);
       
       console.log('user data list',resData.data.data);
   
       var noOfItems = resData.data.data.length;
       console.log(noOfItems);
       
-
+/**
+ * @description looping over the response data receive from the Admin User List API
+ */
       $.each(resData.data.data,function(key,value){
-        // console.log(value.firstName);
        
 
-        var dataTable ='';
+            var dataTable ='';
 
-        dataTable += '<div id="fetchCard" style="font-size:15px;box-shadow:1px 1px 5px;" class="card col-lg-2">';
-        dataTable += '<div class="card-body">'
-        dataTable += '<p>'+'FirstName : '+'</span>'+value.firstName+'</p>';
-        dataTable += '<p>'+'LastName : '+value.lastName+'</p>';
-        dataTable += '<p>'+'EMAIL : '+value.email+'</p>';
-        dataTable += '<p>'+'Service : '+value.service+'</p>';
-        dataTable += '<p>'+'Role : '+value.role+'</p>';
-        dataTable += '</div>';
-        dataTable += '</div>';
+            /**
+             * @description evaluating the data into empty variable and append it using JQUERY method
+             */
 
-        
-        // console.log(value.firstName);
-        // console.log(value.lastName);
-        
-        $('#dataTable').append(dataTable);
+            dataTable += '<div id="fetchCard" style="font-size:15px;box-shadow:1px 1px 5px;" class="card col-lg-2">';
+            dataTable += '<div class="card-body">'
+            dataTable += '<p>'+'FirstName : '+'</span>'+value.firstName+'</p>';
+            dataTable += '<p>'+'LastName : '+value.lastName+'</p>';
+            dataTable += '<p>'+'EMAIL : '+value.email+'</p>';
+            dataTable += '<p>'+'Service : '+value.service+'</p>';
+            dataTable += '<p>'+'Role : '+value.role+'</p>';
+            dataTable += '</div>';
+            dataTable += '</div>';
+
+            
+            $('#dataTable').append(dataTable);
       })
-      var limitPerPage = 12;
-      $('#dataTable .card:gt('+(limitPerPage - 1)+')').hide();
-      
-      var limit = Math.round(noOfItems / limitPerPage);
-      console.log('limit',limit);
+            var limitPerPage = 12;
+            $('#dataTable .card:gt('+(limitPerPage - 1)+')').hide();
+            
+            var limit = Math.round(noOfItems / limitPerPage);
+            console.log('limit',limit);
+
+      /**
+       * @description pagination using jquery
+       */
+
       for(var i=2;i<limit;i++){
         $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
       }
-      $(".pagination").append("<li class='page-item'><a class='page-link' href='#'>NEXT</a></li>")
-      $(".pagination li").on("click",function(){
-        if($(this).hasClass("active")){
-          return false;
-        }
-        else{
-          var currentPage = $(this).index();
-          $(".pagination li").removeClass("active");
-          $(this).addClass("active");
-          $("#dataTable .card").hide();
+                $(".pagination").append("<li class='page-item'><a class='page-link' href='#'>NEXT</a></li>")
+                $(".pagination li").on("click",function(){
+                  if($(this).hasClass("active")){
+                    return false;
+                  }
+                  else{
+                    var currentPage = $(this).index();
+                    $(".pagination li").removeClass("active");
+                    $(this).addClass("active");
+                    $("#dataTable .card").hide();
 
-          var total = limitPerPage * currentPage;
-          for(var i=(total-limitPerPage);i<total;i++){
-            $("#dataTable .card:eq("+i+")").show();
-          }
-        }
+                    var total = limitPerPage * currentPage;
+                    for(var i=(total-limitPerPage);i<total;i++){
+                      $("#dataTable .card:eq("+i+")").show();
+                    }
+                  }
 
 
 
-      })
+                })
       
     }
   })     
-      }
+}
       
-    })
-    
-    
-  }
+})  
+}
 
 }

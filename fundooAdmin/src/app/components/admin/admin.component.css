@@ -34,9 +34,7 @@ label{
 }
 .form-control{
     width: 90%;
-    height: 45px;
-    /* border-color: blue; */
-    border-radius: 10px;
+    height: 35px;
 }
 button{
     padding-bottom: 1px 5px;

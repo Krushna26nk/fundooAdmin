@@ -35,7 +35,9 @@ export class AdminComponent implements OnInit {
     var fullUrl = this.baseurl + this.hiturl;
     var listUrl = this.baseurl + this.hiturl1;
 
-  
+  /**
+   * @description validation using jquery
+   */
 
     $('.emailError').hide();
     $('.emailError1').hide();
@@ -44,7 +46,6 @@ export class AdminComponent implements OnInit {
     $('.error').hide();
 
 
-    
 
     $('#button').click(function(){ 
 
@@ -52,10 +53,7 @@ export class AdminComponent implements OnInit {
    var email = $('#email').val();
    console.log(email);
    console.log(password);
-   
-   
-     
-    
+  
   var password = $('#password').val();
    
   console.log(fullUrl);
@@ -85,22 +83,30 @@ export class AdminComponent implements OnInit {
       }
     
       else{
-        $('#button').attr('href','dashboard');
-      $.ajax({
-        url: fullUrl,
-        type: 'POST',
-        data: {email,password},
-        success : function(response){
-          
-          var token = response.id;
-          localStorage.setItem('token',token);
 
-          this.sampleToken = localStorage.getItem('token');
-          console.log(this.sampleToken);
-          
-          console.log(response);
-          console.log(token);
-          
+      /**
+       * @description ajax call to check for valid authorised admin.
+       */
+
+      $.ajax({
+            url: fullUrl,
+            type: 'POST',
+            data: {email,password},
+            success : function(response){
+              
+              var token = response.id;
+              localStorage.setItem('token',token);
+
+              /**
+               * @description saving the response token into the Local-Storage
+               */
+
+              this.sampleToken = localStorage.getItem('token');
+              console.log(this.sampleToken);
+              
+              console.log(response);
+              console.log(token);
+              
         }
   
       });
