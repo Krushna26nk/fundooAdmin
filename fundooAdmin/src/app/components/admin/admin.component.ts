@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import * as $ from 'jquery';   
-import { DataService } from 'src/app/services/data.service';
-
+import { Router } from '@angular/router';
+import { FormControl, EmailValidator } from '@angular/forms';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   
   
-  constructor(private service:DataService) { }
+  constructor(private router:Router) { }
 
   baseurl = environment.baseUrl;
 
@@ -26,15 +26,10 @@ export class AdminComponent implements OnInit {
 
   result : false;
 
-  sendingData :any;
+  email = new FormControl();
+  password = new FormControl();
 
-  getToken(){
-    let getToken = localStorage.getItem('token');
-    console.log(getToken);
-    return getToken
-    
-  }
-  
+
   ngOnInit(){
 
     var fullUrl = this.baseurl + this.hiturl;
@@ -46,6 +41,7 @@ export class AdminComponent implements OnInit {
     $('.emailError1').hide();
     $('.passwordError').hide();
     $('.passwordError1').hide();
+    $('.error').hide();
 
 
     
@@ -70,7 +66,6 @@ export class AdminComponent implements OnInit {
 
 
     var diff = diff1 - diff2;
-    console.log(diff);
 
       if(email == " "){
         $('.emailError').show();
@@ -85,8 +80,12 @@ export class AdminComponent implements OnInit {
       else if(diff <= 2){
         $('.emailError1').show();
       }
+      else if(email !== 'admin@bridgelabz.com' || password !== '123456789'){
+        $('.error').show();
+      }
     
       else{
+        $('#button').attr('href','dashboard');
       $.ajax({
         url: fullUrl,
         type: 'POST',
@@ -101,19 +100,6 @@ export class AdminComponent implements OnInit {
           
           console.log(response);
           console.log(token);
-          var body = 'access_token'+this.sampleToken;
-          
-          $.ajax({
-            url:listUrl,
-            type:'GET',
-            data:{'access_token':this.sampleToken},
-            success:function(resData){
-              console.log('sample token in ',this.sampleToken);
-              
-              console.log(resData);
-              
-            }
-          })
           
         }
   

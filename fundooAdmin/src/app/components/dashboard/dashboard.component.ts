@@ -28,15 +28,11 @@ export class DashboardComponent implements OnInit {
       type:'GET',
       data:{'access_token':sampleToken},
       success:function(resData){
-        console.log('sample token in ',this.sampleToken);
-        // resData:[] = resData;
         console.log(resData);
         
           var serviceData = resData.data.details;
-          console.log(serviceData);
+          console.log('Service Data',serviceData);
           
-
-          console.log(serviceData[0].service);
           
   console.log(serviceData[0]);
   console.log(serviceData[1]);
@@ -45,14 +41,13 @@ export class DashboardComponent implements OnInit {
   var tableData1 ='';
 
   tableData += '<tr>';
-  tableData += '<td>'+serviceData[0].service+'<td>';
-  tableData += '<td>'+serviceData[0].count+'<td>';
-  tableData += '<tr>';
-
+  tableData += '<td>'+serviceData[0].service+'</td>';
+  tableData += '<td>'+serviceData[0].count+'</td>';
+  tableData += '</tr>';
   tableData1 += '<tr>';
-  tableData1 += '<td>'+serviceData[1].service+'<td>';
-  tableData1 += '<td>'+serviceData[1].count+'<td>';
-  tableData1 += '<tr>';
+  tableData1 += '<td>'+serviceData[1].service+'</td>';
+  tableData1 += '<td>'+serviceData[1].count+'</td>';
+  tableData1 += '</tr>';
   
   $('#table1').append(tableData);
   $('#table').append(tableData1);
@@ -77,7 +72,7 @@ export class DashboardComponent implements OnInit {
 
         var dataTable ='';
 
-        dataTable += '<div id="fetchCard" style="font-size:15px;border:1px solid;background-color:#C2CAD0" class="card col-lg-3">';
+        dataTable += '<div id="fetchCard" style="font-size:15px;box-shadow:1px 1px 5px;" class="card col-lg-2">';
         dataTable += '<div class="card-body">'
         dataTable += '<p>'+'FirstName : '+'</span>'+value.firstName+'</p>';
         dataTable += '<p>'+'LastName : '+value.lastName+'</p>';
@@ -97,7 +92,7 @@ export class DashboardComponent implements OnInit {
       $('#dataTable .card:gt('+(limitPerPage - 1)+')').hide();
       
       var limit = Math.round(noOfItems / limitPerPage);
-      console.log(limit);
+      console.log('limit',limit);
       for(var i=2;i<limit;i++){
         $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
       }

@@ -48,3 +48,6 @@ button{
     font-family: 'Courier New', Courier, monospace;
 
 }
+.emailError , .emailError1 , .passwordError , .error{
+    color: red;
+}

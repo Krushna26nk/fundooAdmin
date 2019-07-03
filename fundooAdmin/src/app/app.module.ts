@@ -6,16 +6,11 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ListComponent } from './components/list/list.component';
-import { SamplecomponentComponent } from './components/samplecomponent/samplecomponent.component';
-import { EmptyComponent } from './components/empty/empty.component';
 
 const routes:Routes =[
   {path:'',component:AdminComponent},
   {path:'admin',component:AdminComponent},
-  {path:'dashboard',component:DashboardComponent},
-  // {path:'list',component:ListComponent},
-  // {path:'empty',component:EmptyComponent}
+  {path:'dashboard',component:DashboardComponent}
 ]
 
 @NgModule({
@@ -23,9 +18,6 @@ const routes:Routes =[
     AppComponent,
     AdminComponent,
     DashboardComponent,
-    ListComponent,
-    SamplecomponentComponent,
-    EmptyComponent
   ],
   imports: [
     FormsModule,
