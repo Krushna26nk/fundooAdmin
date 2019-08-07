@@ -1,0 +1,43 @@
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.3em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    /* width: 133.33333%; */
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex{
+    width: 100%;
+}
+
+ ::placeholder {
+    font-size: 15px;
+}
+input{
+    position: relative;
+    font-size: 15px;
+}
+.inputLabels{
+    font-size: 15px;
+}
+.fundoo{
+    font-size: 20px;
+}
+.fundoo :nth-child(1){
+    color: blue;
+}
+.fundoo :nth-child(even){
+    color: red;
+}
+.fundoo :nth-child(4){
+    color: blue;
+}
+.fundoo :nth-child(3){
+    color: yellow;
+}
+.fundoo :nth-child(5){
+    color: green;
+}
+.formFields{
+    /* position: relative; */
+}

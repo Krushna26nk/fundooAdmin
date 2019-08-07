@@ -1,0 +1,57 @@
+<div gdAreas="header header | side content" class="card" style="margin:0 auto;position: relative;width: 60%;border: 1px solid red;padding:15px">
+
+  <div style="position: relative">
+    <div gdArea="header">
+      <p class="fundoo"> <span>F</span><span>U</span><span>N</span><span>D</span><span>O</span><span>O</span> </p>
+    </div>
+    <div>
+      <p style="font-size: 16px">Create Your Fundoo Account</p>
+    </div>
+  </div>
+
+  <div gdArea="side" style="position: relative">
+    <form action="">
+
+      <div fxLayout="row" fxLayout.lt-sm="column" style="position: relative">
+          <mat-form-field class="formFields" appearance="outline">
+              <mat-label class="inputLabels" for="">Name</mat-label>
+              <input matInput type="text" placeholder="Enter Your First Name">
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline">
+              <mat-label class="inputLabels">Last Name</mat-label>
+              <input matInput type="text" placeholder="Enter Your Last Name">
+            </mat-form-field>
+      </div>
+    
+      <div>
+          <mat-form-field class="formFields" appearance="outline">
+            <mat-label class="inputLabels">Email</mat-label>
+            <input matInput type="text" placeholder="Email Id">
+          </mat-form-field>
+      </div>
+    
+      <div fxLayout.lt-sm="column">
+          <mat-form-field class="formFields" appearance="outline">
+            <mat-label class="inputLabels">Password</mat-label>
+            <input matInput type="password" placeholder="Password ">
+          </mat-form-field>
+    
+          <mat-form-field class="formFields" appearance="outline">
+            <mat-label class="inputLabels">Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Confirm Password ">
+          </mat-form-field>
+      </div>
+    
+      <div>
+        <button mat-raised-button color="primary">SignUp</button>
+      </div>
+    
+    </form>
+  </div>
+
+  <div fxHide.lt-md gdArea="content" style="position: relative">
+    <img  style="width: 150px;height:auto;position: relative;float: right;" src="../../../assets/Images/fgf.png" alt="">
+  </div>
+
+</div>

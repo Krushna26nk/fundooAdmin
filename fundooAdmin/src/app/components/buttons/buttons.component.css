@@ -1,0 +1,12 @@
+#approve{
+    /* background-color: rgb(65, 131, 243); */
+    color: blue;
+}
+#reject{
+    /* background-color: rgb(240, 66, 66); */
+    color: rgb(243, 68, 68);
+}
+button{
+    background: rgb(226, 223, 223);
+    font-size: 12px;    
+}

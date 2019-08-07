@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import * as $ from 'jquery';   
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormControl, EmailValidator } from '@angular/forms';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(){
 
     var fullUrl = this.baseurl + this.hiturl;
-    var listUrl = this.baseurl + this.hiturl1;
+
 
   /**
    * @description validation using jquery
@@ -52,12 +52,11 @@ export class AdminComponent implements OnInit {
 
    var email = $('#email').val();
    console.log(email);
-   console.log(password);
   
   var password = $('#password').val();
-   
+  console.log(password);
   console.log(fullUrl);
-  console.log(listUrl);
+  // console.log(listUrl);
 
   var diff1 = email.indexOf(".");
     var diff2 = email.indexOf("@");
@@ -100,10 +99,6 @@ export class AdminComponent implements OnInit {
               /**
                * @description saving the response token into the Local-Storage
                */
-
-              this.sampleToken = localStorage.getItem('token');
-              console.log(this.sampleToken);
-              
               console.log(response);
               console.log(token);
               

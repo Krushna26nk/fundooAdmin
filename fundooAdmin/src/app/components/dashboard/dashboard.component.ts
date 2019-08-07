@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import {environment} from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   baseUrl = environment.baseUrl;
 
@@ -17,12 +18,13 @@ export class DashboardComponent implements OnInit {
   hiturl2 = 'user/getAdminUserList';
   token:any;
 
+
   ngOnInit() {
     var listUrl = this.baseUrl + this.hiturl1;
     var listUrl1 = this.baseUrl + this.hiturl2;
 
     var sampleToken = localStorage.getItem('token');
-    console.log(sampleToken);
+    console.log('token in dashboard',sampleToken);
 
 /**
  * @description ajax method to call the user admin list api
@@ -141,7 +143,10 @@ export class DashboardComponent implements OnInit {
   })     
 }
       
-})  
+})
+  
 }
+
+
 
 }
