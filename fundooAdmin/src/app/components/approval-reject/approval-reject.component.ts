@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-approval-reject',
   templateUrl: './approval-reject.component.html',
-  styleUrls: ['./approval-reject.component.css']
+  styleUrls: ['./approval-reject.component.scss']
 })
 export class ApprovalRejectComponent implements OnInit {
 
@@ -28,6 +28,7 @@ export class ApprovalRejectComponent implements OnInit {
   ngOnInit() {
     this.sharedService.currentMessage.subscribe((res:any)=>{
       this.getUnApprovedList();
+      console.log('res');
     })
     // this.getUnApprovedList()
   //  this.sharedService.currentMessage.subscribe((res:any)=>{
@@ -49,7 +50,8 @@ export class ApprovalRejectComponent implements OnInit {
     console.log(item);
   }
   getUnApprovedList(){
-    this.http.get(this.baseurl+this.url,this.httpOptions).subscribe((res:any)=>{
+    this.replyArray =[];
+    return this.http.get(this.baseurl+this.url,this.httpOptions).subscribe((res:any)=>{
       console.log(res.data);
       res.data.forEach(element => {
         if(element.isApproved == false && element.isCanceled == false){
@@ -57,7 +59,6 @@ export class ApprovalRejectComponent implements OnInit {
         }
       });
       console.log('reply',this.replyArray);
-      
       // this.sharedService.changeMessage(res.data);
     })
   }

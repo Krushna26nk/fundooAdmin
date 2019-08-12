@@ -16,9 +16,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { ApprovalRejectComponent } from './components/approval-reject/approval-reject.component';
 import { RootComponent } from './components/root/root.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
+import { CardviewloginComponent } from './components/cardviewlogin/cardviewlogin.component';
 
 const routes:Routes =[
-  {path:'',component:AdminComponent},
+  // {path:'',component:AdminComponent},
+  { path : '', component : CardviewloginComponent},
   {path:'admin',component:AdminComponent,children:[
     {path:'dashboard',component:DashboardComponent}
   ]},
@@ -38,6 +40,7 @@ const routes:Routes =[
     ApprovalRejectComponent,
     RootComponent,
     ButtonsComponent,
+    CardviewloginComponent,
   ],
   imports: [
     FormsModule,
