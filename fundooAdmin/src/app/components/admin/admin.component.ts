@@ -106,7 +106,11 @@ export class AdminComponent implements OnInit {
   
       });
     }
-    })
+    });
+
+  }
+  getrouter(){
+    this.router.navigateByUrl('root');
   }
 
 

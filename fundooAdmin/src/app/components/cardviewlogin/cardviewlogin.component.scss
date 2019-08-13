@@ -5,6 +5,9 @@
 .features{
     font-size: 1rem
 }
+ul li{
+    font-size: 0.9em;
+}
 
 .matCard{
     width:50% ;
@@ -13,11 +16,17 @@
 }
 .matCard1{
     transition: 0.1s;
-    width:240px;position: absolute;z-index: 2;
+    width:240px;
+    position: absolute;
+    z-index: 2;
+    height: 240px;
 }
 .matCard2{
     transition: 0.1s;
-    width:240px;position: absolute;z-index: 2;
+    width:240px;
+    position: absolute;
+    z-index: 2;
+    height: 240px;
 }
 .subCard1{
     transition: 0.1s;

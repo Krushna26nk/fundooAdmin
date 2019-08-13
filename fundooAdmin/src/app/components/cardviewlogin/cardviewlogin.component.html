@@ -14,7 +14,7 @@
 
     <div  fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
 
-        <div class="firstDiv" fxLayout fxLayoutAlign="center center">
+        <div class="firstDiv" (click)="onSelectAdvance()" fxLayout fxLayoutAlign="center center">
       
           <mat-card class="matCard1" id="card1">
             <h5> Price : $ 99 / months</h5>
@@ -32,15 +32,15 @@
       
         </div>
         
-        <div class="secondDiv" fxLayout fxLayoutAlign="center center">
+        <div class="secondDiv" (click)="onSelectBasic()" fxLayout fxLayoutAlign="center center">
       
             <mat-card class="matCard2" id="card2">
-              <h5> Price : $ 99 / months</h5>
+              <h5> Price : $ 49 / months</h5>
               <mat-divider></mat-divider>
-              <p> Advance </p>
+              <p> Basic </p>
               <ul>
-                <li class="features"> $ 99 / month </li>
-                <li class="features"> Ability to Add Title , Description , Images , Labels , Checklist and Colors. </li>
+                <li class="features"> $ 49 / month </li>
+                <li class="features"> Ability to Add Only Title and Description . </li>
               </ul>
             </mat-card>
         
@@ -53,8 +53,8 @@
       
       </div>
       
-<div fxLayoutAlign="center center" style="">
-    <span style="color: blue">Sign In Instead </span>
+<div fxLayout fxFlexAlign="end end" style="position: relative;top: 30px">
+    <span style="color: blue" routerLink="admin">Sign In Instead </span>
 </div>
 
 </div>

@@ -19,12 +19,8 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
 import { CardviewloginComponent } from './components/cardviewlogin/cardviewlogin.component';
 
 const routes:Routes =[
-  // {path:'',component:AdminComponent},
-  { path : '', component : CardviewloginComponent},
-  {path:'admin',component:AdminComponent,children:[
-    {path:'dashboard',component:DashboardComponent}
-  ]},
-  {path:'dashboard',component:DashboardComponent},
+  { path : 'cart', component : CardviewloginComponent},
+  {path:'',component:AdminComponent},
   { path:'root',component:RootComponent,children:[
     { path:'dashboard',component:DashboardComponent},
     { path:'approve',component:ApprovalRejectComponent}
