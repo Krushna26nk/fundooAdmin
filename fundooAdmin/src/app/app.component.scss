@@ -3,3 +3,23 @@
     justify-content: center;
     /* align-items: center; */
 }
+.heading{
+    letter-spacing: 2px;
+    position: relative;
+}
+.heading::after{
+    content: "";
+    height: 0.2rem;
+    border-radius: 20px;
+    background: rgb(243, 126, 126);
+    width: 8rem;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%)    
+}
+.img-rounded{
+    height: 4rem;
+    width: auto;
+    background: none;
+}

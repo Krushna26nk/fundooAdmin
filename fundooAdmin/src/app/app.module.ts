@@ -20,14 +20,14 @@ import { CardviewloginComponent } from './components/cardviewlogin/cardviewlogin
 import { DialogcomponentComponent } from './components/dialogcomponent/dialogcomponent.component';
 
 const routes:Routes =[
-  { path : 'cart', component : CardviewloginComponent , children:[
+  { path : '', component : CardviewloginComponent , children:[
     { path: 'signup' , component : RegisterComponent}
+  ]},
+  {path:'admin',component:AdminComponent},
+  { path:'root',component:RootComponent,children:[
+    { path:'dashboard',component:DashboardComponent},
+    { path:'approve',component:ApprovalRejectComponent}
   ]}
-  // {path:'',component:AdminComponent},
-  // { path:'root',component:RootComponent,children:[
-  //   { path:'dashboard',component:DashboardComponent},
-  //   { path:'approve',component:ApprovalRejectComponent}
-  // ]}
 ]
 
 @NgModule({

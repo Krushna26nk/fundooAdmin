@@ -1,60 +1,30 @@
-<nav style="width: 100%" class="navbar navbar-collapse">
-  <div class="">
-    <div class="navbar-brand">
-      <span style="">FUNDOO ADMIN</span>
+
+<div style="height: 100vh">
+  
+  <div class="p-1"></div>
+
+  <div fxLayout fxLayoutAlign="center center">
+    <h4 style="font-size: 20px;"> Fundoo Notes Offered. Choose The Below Service to Register. </h4>
+  </div>
+
+  <div class="p-2"></div>
+
+  <div class="row jumbotron" fxLayout style="width: 60vw;margin: auto auto;background: rgb(187, 187, 187);position: relative;">
+    <div class="card" *ngFor="let item of services"  style="width: 15rem;margin: 0 auto">
+      <div class="card-body">
+        <h6 class="card-title"> Price - $ {{item.price}} /month</h6>
+        <mat-divider style="background: rgb(235, 186, 186)"></mat-divider>
+        <p style="color: blue;text-transform: capitalize"> {{item.name}} </p>
+        <ul>
+          <li>$ {{item.price}} / month </li>
+          <li style="word-break: break-all"> {{item.description}} </li>
+        </ul>
+      </div>
     </div>
   </div>
-</nav>
-<div class="p-1"></div>
-<div fxLayout fxLayoutAlign="center center">
-  <h4> Fundoo Notes Offered. Choose The Below Service to Register. </h4>
-</div>
 
-<div fxLayout="column" fxLayoutAlign="space-around center">
-
-    <div  fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
-
-        <div class="firstDiv" (click)="onSelectAdvance()" fxLayout fxLayoutAlign="center center">
-      
-          <mat-card class="matCard1" id="card1">
-            <h5> Price : $ 99 / months</h5>
-            <mat-divider></mat-divider>
-            <p style="color: blue"> Advance </p>
-            <ul>
-              <li class="features"> $ 99 / month </li>
-              <li class="features"> Ability to Add Title , Description , Images , Labels , Checklist and Colors. </li>
-            </ul>
-          </mat-card>
-      
-          <mat-card fxLayout="column" dir="rtl" class="subCard1" fxLayoutAlign="end center">
-            <mat-card-actions fxFlexAlign="end ">Add To Cart</mat-card-actions>
-          </mat-card>
-      
-        </div>
-        
-        <div class="secondDiv" (click)="onSelectBasic()" fxLayout fxLayoutAlign="center center">
-      
-            <mat-card class="matCard2" id="card2">
-              <h5> Price : $ 49 / months</h5>
-              <mat-divider></mat-divider>
-              <p style="color:blue;"> Basic </p>
-              <ul>
-                <li class="features"> $ 49 / month </li>
-                <li class="features"> Ability to Add Only Title and Description . </li>
-              </ul>
-            </mat-card>
-        
-            <mat-card fxLayout="column" dir="rtl" class="subCard2" fxLayoutAlign="end center">
-              <mat-card-actions fxFlexAlign="end ">Add To Cart</mat-card-actions>
-            </mat-card>
-        
-        </div>
-      
-      
-      </div>
-      
-<div fxLayout fxFlexAlign="end end" style="position: relative;top: 30px">
-    <span style="color: blue" routerLink="admin">Sign In Instead </span>
-</div>
-
+  <div class="animated bounceInUp" style="text-align: center;height:2rem;width: rem;margin-top: 2rem;animation-delay:0.5s;">
+    <span (click)="onSignIn()" style="">Sign In</span>
+  </div>
+   
 </div>

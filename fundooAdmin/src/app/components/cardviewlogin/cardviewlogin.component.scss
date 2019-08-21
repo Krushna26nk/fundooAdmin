@@ -1,12 +1,39 @@
+
 .navbar{
-    background-color: rgb(221, 200, 83);
+    // background-color: rgb(226, 216, 161);
+}
+.img-rounded{
+    height: 4rem;
+    width: auto;
+    background: none;
 }
 
+.heading{
+    letter-spacing: 2px;
+    position: relative;
+}
+.heading::after{
+    content: "";
+    height: 0.2rem;
+    border-radius: 20px;
+    background: rgb(243, 126, 126);
+    width: 8rem;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%)    
+}
+
+.card{
+    box-shadow:2px 5px 10px;
+    position: relative;
+}
 .features{
     font-size: 1rem
 }
 ul li{
     font-size: 0.9em;
+    text-transform: capitalize;
 }
 
 .matCard{
@@ -54,6 +81,20 @@ ul li{
     .subCard2{
         background: rgb(247, 201, 19);
     }
+}
+
+.animated span{
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    // font-weight: 100;
+    border-bottom: 3px solid #4caf50;
+    border-radius: 10px;
+    background: linear-gradient(rgb(80, 177, 80));
+    color: white;
+    font-family: fantasy;
+    box-shadow: 1px 3px 8px cornsilk;
 }
 
 

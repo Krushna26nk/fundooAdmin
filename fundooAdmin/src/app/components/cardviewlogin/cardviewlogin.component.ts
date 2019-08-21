@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialogcomponentComponent } from '../dialogcomponent/dialogcomponent.component';
+import { environment } from 'src/environments/environment';
+import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardviewlogin',
@@ -9,49 +12,36 @@ import { DialogcomponentComponent } from '../dialogcomponent/dialogcomponent.com
 })
 export class CardviewloginComponent implements OnInit {
 
-  constructor( private dialog : MatDialog) { }
+  constructor( private dialog : MatDialog,private adminService:AdminService,private router:Router) { }
 
-  products = [
-        {
-          "price"       : '$ 99 / months',
-          "name"        : 'Advance',
-          "description" : 'Ability to Add Title , Description , Images , Labels , Checklist and Colors.',
-          "selected"    : false
-        },    
-        {
-          "price"       : '$ 49 / months',
-          "name"        : 'Basic',
-          "description" : 'Ability to Add Only Title and Description .',
-          "selected"    : false
-        }
-    
-  ]
+  baseurl = environment.baseUrl;
+  products:any[] = []
+  services : any[] =[];
 
   ngOnInit() {
+    this.getServices();
   }
 
-  onSelectAdvance(){
-    this.products[1].selected = false;
-    // console.log(this.products[0]);
-    this.dialog.open(DialogcomponentComponent,{
-      panelClass:'myapp-no-padding-dialog',
-      data :{
-        "data":this.products,
-        "selected":this.products[0].selected = true
-      }
-    });
+  // to get all serices details 
+
+  getServices(){
+    this.adminService.getServices().subscribe((res:any) =>{
+      var serviceData = res.data.data;
+      console.log('services detail data',serviceData);
+      serviceData.forEach(element => {
+        this.services.push(element);
+      });
+    })
   }
 
-  onSelectBasic(){
-    // console.log(this.products[1]);
-    this.products[0].selected = false;
-    this.dialog.open(DialogcomponentComponent,{
-      panelClass:'myapp-no-padding-dialog',
-      data :{
-        "data":this.products,
-        "selected":this.products[1].selected = true
-      }
-    });
+  // on selection of particular service
+
+  onSelectService(){
+    
+  }
+
+  onSignIn(){
+    this.router.navigateByUrl('admin');
   }
 
 }
