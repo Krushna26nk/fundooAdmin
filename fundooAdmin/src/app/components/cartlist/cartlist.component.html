@@ -1,0 +1,21 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <mat-card *ngFor="let usercart of cartList" style="margin:2rem;max-width:300px;text-transform: capitalize;word-wrap: break-word" >
+    <mat-card-header>
+      <div *ngIf="usercart.user.imageUrl.length > 0" alt="usercart.user.firstName[0]" mat-card-avatar [style.backgroundImage]="'url('+'http://fundoonotes.incubation.bridgelabz.com/'+ usercart.user.imageUrl +')'" style="background-size: cover"></div>
+      <mat-card-title> {{ usercart.user.firstName +' '+ usercart.user.lastName }} </mat-card-title>
+      <mat-card-subtitle> {{usercart.user.email}} </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div style="">
+          <p> {{usercart.product.name}} </p>
+          <p style="color: brown"> $ {{usercart.product.price}} / month </p>
+          <p style=""> {{usercart.product.description}} </p>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="onCompleteOrder(usercart)" style="color: rgba(23, 71, 214,0.7)">COMPLETE</button>
+      <button mat-button (click)="onCancleOrder(usercart)" style="color: rgba(230, 96, 34, 0.8)">CANCLE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

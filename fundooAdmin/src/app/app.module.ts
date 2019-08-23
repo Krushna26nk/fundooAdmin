@@ -18,6 +18,7 @@ import { RootComponent } from './components/root/root.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { CardviewloginComponent } from './components/cardviewlogin/cardviewlogin.component';
 import { DialogcomponentComponent } from './components/dialogcomponent/dialogcomponent.component';
+import { CartlistComponent } from './components/cartlist/cartlist.component';
 
 const routes:Routes =[
   { path : '', component : CardviewloginComponent , children:[
@@ -25,8 +26,10 @@ const routes:Routes =[
   ]},
   {path:'admin',component:AdminComponent},
   { path:'root',component:RootComponent,children:[
+    {path :'',component:DashboardComponent},
     { path:'dashboard',component:DashboardComponent},
-    { path:'approve',component:ApprovalRejectComponent}
+    { path:'approve',component:ApprovalRejectComponent},
+    { path:'cartList', component:CartlistComponent}
   ]}
 ]
 
@@ -41,6 +44,7 @@ const routes:Routes =[
     ButtonsComponent,
     CardviewloginComponent,
     DialogcomponentComponent,
+    CartlistComponent,
   ],
   imports: [
     FormsModule,
