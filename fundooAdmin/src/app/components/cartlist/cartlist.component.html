@@ -1,5 +1,5 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center">
-  <mat-card *ngFor="let usercart of cartList" style="margin:2rem;max-width:300px;text-transform: capitalize;word-wrap: break-word" >
+  <mat-card class="matCard" *ngFor="let usercart of cartList" style="" >
     <mat-card-header>
       <div *ngIf="usercart.user.imageUrl.length > 0" alt="usercart.user.firstName[0]" mat-card-avatar [style.backgroundImage]="'url('+'http://fundoonotes.incubation.bridgelabz.com/'+ usercart.user.imageUrl +')'" style="background-size: cover"></div>
       <mat-card-title> {{ usercart.user.firstName +' '+ usercart.user.lastName }} </mat-card-title>

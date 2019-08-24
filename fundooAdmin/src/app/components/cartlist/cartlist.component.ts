@@ -21,12 +21,14 @@ export class CartlistComponent implements OnInit {
   }
 
   getCartList(){
-    this.adminService.getCartList().subscribe((res :any ) =>{
+  this.cartList = [];  
+  this.adminService.getCartList().subscribe((res :any ) =>{
       console.log('cart list',res.data);
       var data = res.data;
       data.forEach(element => {
         this.cartList.push(element);
       });
+      // this.sharedService.changeMessage('sdfs');
     })
   }
 
@@ -35,6 +37,7 @@ export class CartlistComponent implements OnInit {
     console.log(data);
     this.adminService.completeOrder(data).subscribe((res:any) => {
       console.log(res);
+      this.sharedService.changeMessage('sds');
     })
   }
 
@@ -43,6 +46,7 @@ export class CartlistComponent implements OnInit {
     console.log(data);
     this.adminService.cancelOrder(data).subscribe((res:any) => {
       console.log(res);
+      this.sharedService.changeMessage('dsd');
     })
   }
 
