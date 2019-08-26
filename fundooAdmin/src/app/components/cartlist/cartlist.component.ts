@@ -11,7 +11,7 @@ export class CartlistComponent implements OnInit {
 
   constructor(private adminService:AdminService,private sharedService : SharedService) { }
 
-  cartList : any[] = [];
+  cartList: any[] = [];
 
   ngOnInit() {
     this.sharedService.currentMessage.subscribe((res) =>{
@@ -22,7 +22,7 @@ export class CartlistComponent implements OnInit {
 
   getCartList(){
   this.cartList = [];  
-  this.adminService.getCartList().subscribe((res :any ) =>{
+  this.adminService.getCartList().subscribe((res: any ) =>{
       console.log('cart list',res.data);
       var data = res.data;
       data.forEach(element => {

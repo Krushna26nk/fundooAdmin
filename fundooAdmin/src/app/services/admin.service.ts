@@ -25,10 +25,20 @@ export class AdminService {
       return this.http.get(this.baseurl+url);
     }
 
+    /**
+     * @description getting user cart list.
+     */
+
     getCartList(){
       var url = 'productcarts/userCartList';
       return this.http.get(this.baseurl+url,this.httpOptions);
     }
+
+    /**
+     * 
+     * @param data data comes from the component of user .  
+     * @description completing the order of the user cart
+     */
 
     completeOrder(data){
       var url = 'productcarts/adminCompleteOrder';
